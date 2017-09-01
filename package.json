@@ -1,0 +1,99 @@
+{
+  "name": "app",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rimraf node_modules doc dist && npm cache clean",
+    "clean-install": "npm run clean && npm install",
+    "clean-start": "npm run clean-install && npm start",
+    "watch": "webpack --watch --progress --profile",
+    "build": "rimraf dist && webpack --progress --profile --bail",
+    "server": "webpack-dev-server --inline --progress --port 8080",
+    "webdriver-update": "webdriver-manager update",
+    "webdriver-start": "webdriver-manager start",
+    "lint": "tslint --force \"src/**/*.ts\"",
+    "e2e": "protractor",
+    "e2e-live": "protractor --elementExplorer",
+    "pretest": "npm run lint",
+    "test": "karma start",
+    "posttest": "remap-istanbul -i coverage/json/coverage-final.json -o coverage/html -t html",
+    "test-watch": "karma start --no-single-run --auto-watch",
+    "ci": "npm run e2e && npm run test",
+    "docs": "typedoc --options typedoc.json src/app/app.component.ts",
+    "start": "npm run server",
+    "start:hmr": "npm run server -- --hot",
+    "postinstall": "npm run webdriver-update"
+  },
+  "dependencies": {
+    "@angular/common": "*",
+    "@angular/compiler": "*",
+    "@angular/core": "*",
+    "@angular/forms": "*",
+    "@angular/http": "*",
+    "@angular/platform-browser": "*",
+    "@angular/platform-browser-dynamic": "*",
+    "@angular/router": "*",
+    "core-js": "*",
+    "primeng": "*",
+    "font-awesome": "*",
+    "google-maps": "*",
+    "reflect-metadata": "*",
+    "rxjs": "*",
+    "zone.js": "*"
+  },
+  "devDependencies": {
+    "webpack": "*",
+    "webpack-dev-server": "*",
+    "html-webpack-plugin": "*",
+    "extract-text-webpack-plugin": "2.1.2",
+    "copy-webpack-plugin": "*",
+
+    "awesome-typescript-loader": "*",
+    "angular2-template-loader": "*",
+    "@angularclass/hmr": "*",
+    "@angularclass/hmr-loader": "*",
+
+    "file-loader": "*",
+
+    "json-loader": "*",
+
+    "raw-loader": "*",
+
+    "null-loader": "*",
+    "style-loader": "*",
+    "css-loader": "*",
+    "postcss-loader": "*",
+    "autoprefixer": "*",
+    "sass-loader": "*",
+    "node-sass": "*",
+
+    "tslint-loader": "*",
+    "tslint": "*",
+    "codelyzer": "*",
+
+    "typescript": "*",
+
+    "@types/core-js": "*",
+    "@types/node": "*",
+    "@types/selenium-webdriver": "*",
+    "@types/jasmine": "*",
+
+    "istanbul-instrumenter-loader": "*",
+    "jasmine-core": "*",
+    "jasmine-spec-reporter": "*",
+    "karma": "*",
+    "karma-chrome-launcher": "*",
+    "karma-coverage": "*",
+    "karma-jasmine": "*",
+    "karma-mocha-reporter": "*",
+    "karma-remap-istanbul": "*",
+    "karma-sourcemap-loader": "*",
+    "karma-webpack": "*",
+    "ts-helpers": "*",
+    "protractor": "*",
+    "remap-istanbul": "*",
+    "rimraf": "*",
+
+    "typedoc": "*"
+  }
+}
